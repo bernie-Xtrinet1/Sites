@@ -38,10 +38,11 @@
         <script src="data/SiteCustomers2026_0.js"></script>
         <script src="data/jm_shp1jmshp_1.js"></script>
         <script src="data/Sitelocationsandcoordinates2026_3.js"></script>
+        <script src="data/ExistingandInactiveSites2026_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[17.47086033473798,-78.37754107536594],[18.631818059644747,-76.0815205933942]]);
+        }).fitBounds([[18.211564310712408,-77.71182461043334],[18.50180374193911,-77.13781948994038]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -709,6 +710,281 @@
         });
         bounds_group.addLayer(layer_Sitelocationsandcoordinates2026_3);
         map.addLayer(layer_Sitelocationsandcoordinates2026_3);
+        function pop_ExistingandInactiveSites2026_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="SITE NAME" colspan="2"><strong>SITE NAME</strong><br />' + (feature.properties['SITE NAME'] !== null ? autolinker.link(String(feature.properties['SITE NAME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Parish" colspan="2"><strong>Parish</strong><br />' + (feature.properties['Parish'] !== null ? autolinker.link(String(feature.properties['Parish']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No Of Customers'] !== null ? autolinker.link(String(feature.properties['No Of Customers']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Latitudes" colspan="2"><strong>Latitudes</strong><br />' + (feature.properties['Latitudes'] !== null ? autolinker.link(String(feature.properties['Latitudes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Longitudes" colspan="2"><strong>Longitudes</strong><br />' + (feature.properties['Longitudes'] !== null ? autolinker.link(String(feature.properties['Longitudes']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="Site Category" colspan="2"><strong>Site Category</strong><br />' + (feature.properties['Site Category'] !== null ? autolinker.link(String(feature.properties['Site Category']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tower Type</th>\
+                        <td class="visible-with-data" id="Tower Type">' + (feature.properties['Tower Type'] !== null ? autolinker.link(String(feature.properties['Tower Type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Tower Height'] !== null ? autolinker.link(String(feature.properties['Tower Height']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Power Supply'] !== null ? autolinker.link(String(feature.properties['Power Supply']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Panel Size (Watts)'] !== null ? autolinker.link(String(feature.properties['Panel Size (Watts)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Battery'] !== null ? autolinker.link(String(feature.properties['Battery']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Charge Controller (V)'] !== null ? autolinker.link(String(feature.properties['Charge Controller (V)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Rectifier'] !== null ? autolinker.link(String(feature.properties['Rectifier']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Owner Name'] !== null ? autolinker.link(String(feature.properties['Owner Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Telephone'] !== null ? autolinker.link(String(feature.properties['Telephone']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Date'] !== null ? autolinker.link(String(feature.properties['Date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Amount'] !== null ? autolinker.link(String(feature.properties['Amount']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Light/Mnth'] !== null ? autolinker.link(String(feature.properties['Light/Mnth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Free Internet'] !== null ? autolinker.link(String(feature.properties['Free Internet']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Terms'] !== null ? autolinker.link(String(feature.properties['Terms']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Payment1 Date'] !== null ? autolinker.link(String(feature.properties['Payment1 Date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Payment Amt1'] !== null ? autolinker.link(String(feature.properties['Payment Amt1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Remarks1'] !== null ? autolinker.link(String(feature.properties['Remarks1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Payment2 Date'] !== null ? autolinker.link(String(feature.properties['Payment2 Date']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Payment Amt2'] !== null ? autolinker.link(String(feature.properties['Payment Amt2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Remarks2'] !== null ? autolinker.link(String(feature.properties['Remarks2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Site Image'] !== null ? autolinker.link(String(feature.properties['Site Image']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Antenna 1'] !== null ? autolinker.link(String(feature.properties['Antenna 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MAC 1'] !== null ? autolinker.link(String(feature.properties['MAC 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Size 1'] !== null ? autolinker.link(String(feature.properties['Size 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Manufacturer1'] !== null ? autolinker.link(String(feature.properties['Manufacturer1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Antenna 2'] !== null ? autolinker.link(String(feature.properties['Antenna 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MAC 2'] !== null ? autolinker.link(String(feature.properties['MAC 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Size 2'] !== null ? autolinker.link(String(feature.properties['Size 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Manufacturer2'] !== null ? autolinker.link(String(feature.properties['Manufacturer2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Antenna 3'] !== null ? autolinker.link(String(feature.properties['Antenna 3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MAC 3'] !== null ? autolinker.link(String(feature.properties['MAC 3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Size 3'] !== null ? autolinker.link(String(feature.properties['Size 3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Manufacturer3'] !== null ? autolinker.link(String(feature.properties['Manufacturer3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Antenna 4'] !== null ? autolinker.link(String(feature.properties['Antenna 4']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MAC 4'] !== null ? autolinker.link(String(feature.properties['MAC 4']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Size 4'] !== null ? autolinker.link(String(feature.properties['Size 4']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Manufacturer4'] !== null ? autolinker.link(String(feature.properties['Manufacturer4']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP 1'] !== null ? autolinker.link(String(feature.properties['AP 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP MAC 1'] !== null ? autolinker.link(String(feature.properties['AP MAC 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP Type 1'] !== null ? autolinker.link(String(feature.properties['AP Type 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP Manufacturer 1'] !== null ? autolinker.link(String(feature.properties['AP Manufacturer 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP 2'] !== null ? autolinker.link(String(feature.properties['AP 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP MAC 2'] !== null ? autolinker.link(String(feature.properties['AP MAC 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP Type 2'] !== null ? autolinker.link(String(feature.properties['AP Type 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP Manufacturer 2'] !== null ? autolinker.link(String(feature.properties['AP Manufacturer 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP 3'] !== null ? autolinker.link(String(feature.properties['AP 3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP MAC 3'] !== null ? autolinker.link(String(feature.properties['AP MAC 3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP Type 3'] !== null ? autolinker.link(String(feature.properties['AP Type 3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AP Manufacturer 3'] !== null ? autolinker.link(String(feature.properties['AP Manufacturer 3']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch 1'] !== null ? autolinker.link(String(feature.properties['Switch 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch MAC 1'] !== null ? autolinker.link(String(feature.properties['Switch MAC 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch Type 1'] !== null ? autolinker.link(String(feature.properties['Switch Type 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch Manufacturer 1'] !== null ? autolinker.link(String(feature.properties['Switch Manufacturer 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch 2'] !== null ? autolinker.link(String(feature.properties['Switch 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch MAC 2'] !== null ? autolinker.link(String(feature.properties['Switch MAC 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch Type 2'] !== null ? autolinker.link(String(feature.properties['Switch Type 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Switch Manufacturer 2'] !== null ? autolinker.link(String(feature.properties['Switch Manufacturer 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router 1'] !== null ? autolinker.link(String(feature.properties['Router 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router 1 Ports'] !== null ? autolinker.link(String(feature.properties['Router 1 Ports']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router MAC 1'] !== null ? autolinker.link(String(feature.properties['Router MAC 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router Type 1'] !== null ? autolinker.link(String(feature.properties['Router Type 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router Manufacturer 1'] !== null ? autolinker.link(String(feature.properties['Router Manufacturer 1']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router 2'] !== null ? autolinker.link(String(feature.properties['Router 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router 2 Ports'] !== null ? autolinker.link(String(feature.properties['Router 2 Ports']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router MAC 2'] !== null ? autolinker.link(String(feature.properties['Router MAC 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router Type 2'] !== null ? autolinker.link(String(feature.properties['Router Type 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Router Manufacturer 2'] !== null ? autolinker.link(String(feature.properties['Router Manufacturer 2']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Site Type'] !== null ? autolinker.link(String(feature.properties['Site Type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Status'] !== null ? autolinker.link(String(feature.properties['Status']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['No Of Customer'] !== null ? autolinker.link(String(feature.properties['No Of Customer']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_ExistingandInactiveSites2026_4_0() {
+            return {
+                pane: 'pane_ExistingandInactiveSites2026_4',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_ExistingandInactiveSites2026_4');
+        map.getPane('pane_ExistingandInactiveSites2026_4').style.zIndex = 404;
+        map.getPane('pane_ExistingandInactiveSites2026_4').style['mix-blend-mode'] = 'normal';
+        var layer_ExistingandInactiveSites2026_4 = new L.geoJson(json_ExistingandInactiveSites2026_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ExistingandInactiveSites2026_4',
+            layerName: 'layer_ExistingandInactiveSites2026_4',
+            pane: 'pane_ExistingandInactiveSites2026_4',
+            onEachFeature: pop_ExistingandInactiveSites2026_4,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_ExistingandInactiveSites2026_4_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_ExistingandInactiveSites2026_4);
+        map.addLayer(layer_ExistingandInactiveSites2026_4);
         map.on("zoomend", function(e) {
             if (map.getZoom() <= 19 && map.getZoom() >= 10) {
                 map.addLayer(layer_Heatmap_2);
@@ -735,20 +1011,33 @@
               addLabel(layer, i);
               i++;
         });
+        var i = 0;
+        layer_ExistingandInactiveSites2026_4.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['SITE NAME'] !== null?String('<div style="color: #323232; font-size: 10pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['SITE NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_ExistingandInactiveSites2026_4'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
         L.ImageOverlay.include({
             getBounds: function () {
                 return this._bounds;
             }
         });
-        resetLabels([layer_Sitelocationsandcoordinates2026_3]);
+        resetLabels([layer_Sitelocationsandcoordinates2026_3,layer_ExistingandInactiveSites2026_4]);
         map.on("zoomend", function(){
-            resetLabels([layer_Sitelocationsandcoordinates2026_3]);
+            resetLabels([layer_Sitelocationsandcoordinates2026_3,layer_ExistingandInactiveSites2026_4]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Sitelocationsandcoordinates2026_3]);
+            resetLabels([layer_Sitelocationsandcoordinates2026_3,layer_ExistingandInactiveSites2026_4]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Sitelocationsandcoordinates2026_3]);
+            resetLabels([layer_Sitelocationsandcoordinates2026_3,layer_ExistingandInactiveSites2026_4]);
         });
         </script>        
     </body>
